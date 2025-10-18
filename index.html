@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galeria Conecta — Somente Visualização</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f8fafc; --card:#fff; --txt:#0f172a; --muted:#64748b;
+      --accent:#0ea5e9; --border:#e2e8f0;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      color:var(--txt); background:var(--bg);
+    }
+    header{
+      position:sticky; top:0; z-index:10;
+      background:var(--card); border-bottom:1px solid var(--border);
+    }
+    .shell{max-width:1100px; margin:0 auto; padding:16px}
+    .title{display:flex; align-items:center; gap:12px}
+    .title h1{margin:0; font-size:20px}
+    .badge{font-size:12px; color:var(--muted)}
+    .help{font-size:12px; color:var(--muted); margin-top:4px}
+
+    .searchbar{
+      display:flex; gap:10px; margin-top:12px; flex-wrap: wrap;
+    }
+    .searchbar input[type="text"]{
+      flex:1 1 420px;
+      border:1px solid var(--border); background:#fff; color:var(--txt);
+      border-radius:10px; padding:12px 14px; outline:none;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px; border:1px solid var(--border); border-radius:999px;
+      background:#fff; color:var(--muted); font-size:14px;
+    }
+
+    main{padding:24px 0}
+    .grid{
+      display:grid; gap:14px;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    }
+    .card{
+      background:var(--card); border:1px solid var(--border);
+      border-radius:14px; padding:14px; display:flex; flex-direction:column; gap:6px;
+    }
+    .sku{font-weight:600}
+    .desc{color:var(--muted)}
+    .price{margin-top:4px; color:#1f2937; font-weight:600}
+    footer{color:var(--muted); text-align:center; padding:32px 16px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="shell">
+      <div class="title">
+        <img alt="📷" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%230ea5e9' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3l2-3h8l2 3h3a2 2 0 0 1 2 2z'/%3E%3Ccircle cx='12' cy='13' r='4'/%3E%3C/svg%3E" />
+        <h1>Galeria Conecta</h1>
+        <span class="badge">somente visualização</span>
+      </div>
+      <div class="help">Digite o código ou parte do nome para filtrar. (Sem estoque, sem edição.)</div>
+
+      <div class="searchbar">
+        <input id="q" type="text" placeholder="Buscar por código ou nome do produto..." autocomplete="off" />
+        <label class="pill">
+          <input id="only-photo" type="checkbox" />
+          Mostrar apenas itens com foto
+        </label>
+        <label class="pill">
+          <input id="no-photo" type="checkbox" />
+          Mostrar apenas itens sem foto
+        </label>
+        <div class="pill" id="counter">—</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <div id="grid" class="grid"></div>
+  </main>
+
+  <footer>
+    © 2025 Conecta Acessórios — uso interno
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
